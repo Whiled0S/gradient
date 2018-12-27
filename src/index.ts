@@ -1,5 +1,31 @@
 import "./styles/index.less";
+import config from "./config";
 
-const greeting: string = "Hello";
+import {RGB} from "./entities/RGB";
+import {Gradient} from "./entities/Gradient";
+import {ChangingColor} from "./entities/ChangingColor";
 
-console.log(greeting);
+const {width, height} = config;
+
+const background = <HTMLCanvasElement> document.getElementById("background");
+const context = <CanvasRenderingContext2D> background.getContext("2d");
+
+background.width = width;
+background.height = height;
+
+const color_1 = new RGB(17,45,200);
+const color_2 = new RGB(218,1,105);
+
+
+const gradient = new Gradient([
+  new ChangingColor(color_1, color_2),
+  new ChangingColor(color_2, color_1),
+], width, height);
+
+(function main() {
+  gradient.draw(context);
+
+  requestAnimationFrame(main);
+}());
+
+

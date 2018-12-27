@@ -29,5 +29,10 @@ module.exports = {
     compress: true,
     port: 3000
   },
+  resolve: {
+    extensions: [
+      ".ts", ".tsx", ".js"
+    ]
+  },
   mode: "development"
 };
