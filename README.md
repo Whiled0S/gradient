@@ -1,4 +1,4 @@
-**Installation guide**
+#**Installation guide**
 
 `git clone https://gitlab.com/Whiled0s/preloader.git`
 

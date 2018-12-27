@@ -1,11 +1,11 @@
 export class RGB {
-  val_1: number;
-  val_2: number;
-  val_3: number;
+  red: number;
+  green: number;
+  blue: number;
 
-  constructor(val_1: number, val_2: number, val_3: number) {
-    this.val_1 = val_1;
-    this.val_2 = val_2;
-    this.val_3 = val_3;
+  constructor(red: number, green: number, blue: number) {
+    this.red = red;
+    this.green = green;
+    this.blue = blue;
   }
 }

@@ -13,9 +13,8 @@ const context = <CanvasRenderingContext2D> background.getContext("2d");
 background.width = width;
 background.height = height;
 
-const color_1 = new RGB(17,45,200);
-const color_2 = new RGB(218,1,105);
-
+const color_1 = new RGB(142,68,173);
+const color_2 = new RGB(41,128,185);
 
 const gradient = new Gradient([
   new ChangingColor(color_1, color_2),

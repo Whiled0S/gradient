@@ -4,58 +4,58 @@ import config from "../config";
 const {speed} = config;
 
 export class ChangingColor {
-  min_1: number;
-  max_1: number;
-  min_2: number;
-  max_2: number;
-  min_3: number;
-  max_3: number;
+  min_red: number;
+  max_red: number;
+  min_green: number;
+  max_green: number;
+  min_blue: number;
+  max_blue: number;
 
-  step_1: number;
-  step_2: number;
-  step_3: number;
+  step_red: number;
+  step_green: number;
+  step_blue: number;
 
   RGBColor: RGB;
   stringColor: string;
 
   constructor(color_1: RGB, color_2: RGB) {
-    this.min_1 = Math.min(color_1.val_1, color_2.val_1);
-    this.max_1 = Math.max(color_1.val_1, color_2.val_1);
-    this.min_2 = Math.min(color_1.val_2, color_2.val_2);
-    this.max_2 = Math.max(color_1.val_2, color_2.val_2);
-    this.min_3 = Math.min(color_1.val_3, color_2.val_3);
-    this.max_3 = Math.max(color_1.val_3, color_2.val_3);
+    this.min_red = Math.min(color_1.red, color_2.red);
+    this.max_red = Math.max(color_1.red, color_2.red);
+    this.min_green = Math.min(color_1.green, color_2.green);
+    this.max_green = Math.max(color_1.green, color_2.green);
+    this.min_blue = Math.min(color_1.blue, color_2.blue);
+    this.max_blue = Math.max(color_1.blue, color_2.blue);
 
-    this.step_1 = (color_1.val_1 - color_2.val_1) / 60 * speed;
-    this.step_2 = (color_1.val_2 - color_2.val_2) / 60 * speed;
-    this.step_3 = (color_1.val_3 - color_2.val_3) / 60 * speed;
+    this.step_red = (color_1.red - color_2.red) / 60 * speed;
+    this.step_green = (color_1.green - color_2.green) / 60 * speed;
+    this.step_blue = (color_1.blue - color_2.blue) / 60 * speed;
 
-    console.log(this.step_1, this.step_2, this.step_3);
+    console.log(this.step_red, this.step_green, this.step_blue);
 
     this.RGBColor = color_1;
   }
 
   private checkBorders() {
-    if (this.RGBColor.val_1 >= this.max_1 || this.RGBColor.val_1 <= this.min_1)
-      this.step_1 = -this.step_1;
-    if (this.RGBColor.val_2 >= this.max_2 || this.RGBColor.val_2 <= this.min_2)
-      this.step_2 = -this.step_2;
-    if (this.RGBColor.val_3 >= this.max_3 || this.RGBColor.val_3 <= this.min_3)
-      this.step_3 = -this.step_3;
+    if (this.RGBColor.red >= this.max_red || this.RGBColor.red <= this.min_red)
+      this.step_red = -this.step_red;
+    if (this.RGBColor.green >= this.max_green || this.RGBColor.green <= this.min_green)
+      this.step_green = -this.step_green;
+    if (this.RGBColor.blue >= this.max_blue || this.RGBColor.blue <= this.min_blue)
+      this.step_blue = -this.step_blue;
   }
 
   private calculateColor() {
     const {RGBColor} = this;
 
-    this.stringColor = `rgb(${RGBColor.val_1},${RGBColor.val_2},${RGBColor.val_3})`;
+    this.stringColor = `rgb(${RGBColor.red},${RGBColor.green},${RGBColor.blue})`;
   }
 
   public change() {
     this.checkBorders();
 
-    this.RGBColor.val_1 += this.step_1;
-    this.RGBColor.val_2 += this.step_2;
-    this.RGBColor.val_3 += this.step_3;
+    this.RGBColor.red += this.step_red;
+    this.RGBColor.green += this.step_green;
+    this.RGBColor.blue += this.step_blue;
 
     this.calculateColor();
   }

@@ -1,10 +1,10 @@
 import {ChangingColor} from "./ChangingColor";
 
 export class Gradient {
-  colors: ChangingColor[];
+  private colors: ChangingColor[];
 
-  width: number;
-  height: number;
+  private readonly width: number;
+  private readonly height: number;
 
   constructor(colors: ChangingColor[], width: number, height: number) {
     this.colors = colors;
@@ -13,8 +13,8 @@ export class Gradient {
     this.height = height;
   }
 
-  public draw(context: CanvasRenderingContext2D) {
-    const gradient = context.createLinearGradient(0, 0, this.width, this.height);
+  public draw(context: CanvasRenderingContext2D):void {
+    const gradient = context.createLinearGradient(this.width / 2, 0, this.width / 2, this.height);
 
     this.colors.map((color, index) => {
       color.change();
