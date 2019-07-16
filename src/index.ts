@@ -1,4 +1,3 @@
-import "./styles/index.less";
 import config from "./config";
 
 import {RGB} from "./entities/RGB";
@@ -15,10 +14,12 @@ background.height = height;
 
 const color_1 = new RGB(142,68,173);
 const color_2 = new RGB(41,128,185);
+const color_3 = new RGB(39, 174, 96);
 
 const gradient = new Gradient([
   new ChangingColor(color_1, color_2),
-  new ChangingColor(color_2, color_1),
+  new ChangingColor(color_2, color_3),
+  new ChangingColor(color_3, color_1),
 ], width, height);
 
 (function main() {

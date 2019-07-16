@@ -14,7 +14,7 @@ export class Gradient {
   }
 
   public draw(context: CanvasRenderingContext2D):void {
-    const gradient = context.createLinearGradient(this.width / 2, 0, this.width / 2, this.height);
+    const gradient = context.createLinearGradient(0, 0, this.width, this.height);
 
     this.colors.map((color, index) => {
       color.change();
